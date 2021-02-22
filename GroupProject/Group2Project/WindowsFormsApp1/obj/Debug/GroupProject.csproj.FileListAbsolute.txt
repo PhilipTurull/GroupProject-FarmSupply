@@ -1,0 +1,11 @@
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form3.resources
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form4.resources
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form5.resources
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form6.resources
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\GroupProject.GUIMockup.resources
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\GroupProject.csproj.GenerateResource.cache
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\GroupProject.csproj.CoreCompileInputs.cache
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Roberto\Desktop\GroupProject\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
