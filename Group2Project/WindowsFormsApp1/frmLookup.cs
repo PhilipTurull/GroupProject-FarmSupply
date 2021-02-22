@@ -16,5 +16,25 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //constrict listboox to items that share text in name or description
+        }
+
+        private void btnAddtoCart_Click(object sender, EventArgs e)
+        {
+            //adds items to ongoing order
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            //return to menu
+        }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            //pull up full order
+        }
     }
 }
