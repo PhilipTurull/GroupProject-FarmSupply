@@ -1,0 +1,9 @@
+D:\GroupProject\Group2Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+D:\GroupProject\Group2Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmLogin.resources
+D:\GroupProject\Group2Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmMenu.resources
+D:\GroupProject\Group2Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmOrders.resources
+D:\GroupProject\Group2Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmLookup.resources
+D:\GroupProject\Group2Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmSchedules.resources
+D:\GroupProject\Group2Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmSales.resources
+D:\GroupProject\Group2Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.GUIMockup.resources
+D:\GroupProject\Group2Project\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
