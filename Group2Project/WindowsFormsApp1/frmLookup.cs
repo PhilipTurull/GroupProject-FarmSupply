@@ -36,5 +36,12 @@ namespace WindowsFormsApp1
         {
             //pull up full order
         }
+
+        private void frmLookup_Load(object sender, EventArgs e)
+        {
+            ProgOps.OpenDatabase();
+            ProgOps.InitProductDatabaseCommand(dgvProducts, lblDesc, pbxProduct);
+
+        }
     }
 }

@@ -30,13 +30,13 @@ namespace WindowsFormsApp1
         private void btnSign_Click(object sender, EventArgs e)
         {
             //make new data in db and bring up frmSignUp
-
+            
            //bring them to login
 
             //messagebox to tell them too login?
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnExit_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }

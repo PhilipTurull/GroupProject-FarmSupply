@@ -35,10 +35,11 @@
             this.lblDesc = new System.Windows.Forms.Label();
             this.pbxProduct = new System.Windows.Forms.PictureBox();
             this.btnAddtoCart = new System.Windows.Forms.Button();
-            this.lbxProducts = new System.Windows.Forms.ListBox();
             this.btnMenu = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbxProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -96,14 +97,6 @@
             this.btnAddtoCart.UseVisualStyleBackColor = true;
             this.btnAddtoCart.Click += new System.EventHandler(this.btnAddtoCart_Click);
             // 
-            // lbxProducts
-            // 
-            this.lbxProducts.FormattingEnabled = true;
-            this.lbxProducts.Location = new System.Drawing.Point(659, 21);
-            this.lbxProducts.Name = "lbxProducts";
-            this.lbxProducts.Size = new System.Drawing.Size(120, 290);
-            this.lbxProducts.TabIndex = 14;
-            // 
             // btnMenu
             // 
             this.btnMenu.Location = new System.Drawing.Point(15, 289);
@@ -124,15 +117,24 @@
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
+            // dgvProducts
+            // 
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Location = new System.Drawing.Point(660, 21);
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.ReadOnly = true;
+            this.dgvProducts.Size = new System.Drawing.Size(240, 286);
+            this.dgvProducts.TabIndex = 17;
+            // 
             // frmLookup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 324);
+            this.ClientSize = new System.Drawing.Size(932, 324);
             this.ControlBox = false;
+            this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnMenu);
-            this.Controls.Add(this.lbxProducts);
             this.Controls.Add(this.btnAddtoCart);
             this.Controls.Add(this.pbxProduct);
             this.Controls.Add(this.lblDesc);
@@ -141,7 +143,9 @@
             this.Controls.Add(this.txtSearch);
             this.Name = "frmLookup";
             this.Text = "Look Up";
+            this.Load += new System.EventHandler(this.frmLookup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,8 +159,8 @@
         private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.PictureBox pbxProduct;
         private System.Windows.Forms.Button btnAddtoCart;
-        private System.Windows.Forms.ListBox lbxProducts;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.DataGridView dgvProducts;
     }
 }
