@@ -22,7 +22,9 @@ namespace WindowsFormsApp1
             //check for matching email to database
 
             //pull up products if customer
-
+            frmMenu menu = new frmMenu(this);
+            menu.Show();
+            this.Hide();
             //pull up 
             
         }

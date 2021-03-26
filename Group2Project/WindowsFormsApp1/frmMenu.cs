@@ -12,9 +12,11 @@ namespace WindowsFormsApp1
 {
     public partial class frmMenu : Form
     {
-        public frmMenu()
+        frmLogin LoggedIn;
+        public frmMenu(frmLogin Login)
         {
             InitializeComponent();
+            LoggedIn = Login;
         }
 
         private void frmMenu_Load(object sender, EventArgs e)
@@ -26,6 +28,8 @@ namespace WindowsFormsApp1
         private void btnLookup_Click(object sender, EventArgs e)
         {
             //open frmProoduct or lookup or whatever
+            frmLookup looking = new frmLookup(this);
+            looking.Show();
         }
 
         private void btnOrdersCust_Click(object sender, EventArgs e)
@@ -51,6 +55,8 @@ namespace WindowsFormsApp1
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             //return to frmLogin
+            LoggedIn.Show();
+            this.Hide();
         }
     }
 }

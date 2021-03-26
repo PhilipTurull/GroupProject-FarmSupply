@@ -103,6 +103,7 @@
             this.Controls.Add(this.btnOrdersCust);
             this.Controls.Add(this.btnLookup);
             this.Name = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.frmMenu_Load);
             this.ResumeLayout(false);

@@ -25,6 +25,8 @@ namespace WindowsFormsApp1
         //data table
         private static DataTable _dtProductsTable = new DataTable();
 
+        private static DataTable _dtProductDescriptionTable = new DataTable();
+
         //getters and setters from frmProducts
 
 
@@ -70,6 +72,8 @@ namespace WindowsFormsApp1
             _daProducts = new SqlDataAdapter();
             _dtProductsTable = new DataTable();
 
+            _dtProductDescriptionTable = new DataTable();
+
             string strDGVCommand = "Select Name, Price, InStock from group2sp212330.Products";
             string strLBLCommand = "Select Description from group2sp212330.Products where UPC = 1456789123";
             string strPBXCommand = "Select group2sp212330.Products.ImageIndex , ProductImage from group2sp212330.Products, group2sp212330.ProdImages where UPC = 1456789123 and group2sp212330.Products.ImageIndex = group2sp212330.ProdImages.ImageIndex;";
@@ -89,8 +93,10 @@ namespace WindowsFormsApp1
                 //establish data adaptor
                 _daProducts.SelectCommand = _sqlProductsCommand;
                 //fill data table
-                Description.Text = _daProducts.ToString();
-                //bind dgv to data table
+                _daProducts.Fill(_dtProductDescriptionTable);
+               
+                Description.DataBindings.Add("Text", _dtProductDescriptionTable, "Description");
+                
 
                 _sqlProductsCommand = new SqlCommand(strPBXCommand, _cntDatabase);
                 //establish data adaptor

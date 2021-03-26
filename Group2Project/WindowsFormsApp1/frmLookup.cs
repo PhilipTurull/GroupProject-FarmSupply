@@ -12,9 +12,11 @@ namespace WindowsFormsApp1
 {
     public partial class frmLookup : Form
     {
-        public frmLookup()
+        frmMenu formMenu;
+        public frmLookup(frmMenu menu)
         {
             InitializeComponent();
+            formMenu = menu;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -30,6 +32,9 @@ namespace WindowsFormsApp1
         private void btnMenu_Click(object sender, EventArgs e)
         {
             //return to menu
+            formMenu.Show();
+            ProgOps.CloseDatabaseDispose();
+            this.Close();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
