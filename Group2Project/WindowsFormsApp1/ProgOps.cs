@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
         //build a connection to database
         private static SqlConnection _cntDatabase = new SqlConnection(CONNECT_STRING);
 
-
+        //Product Form Information
         private static SqlCommand _sqlProductsCommand;
         //data adaptor
         private static SqlDataAdapter _daProducts = new SqlDataAdapter();
@@ -27,8 +27,16 @@ namespace WindowsFormsApp1
 
         private static DataTable _dtProductDescriptionTable = new DataTable();
 
-        //getters and setters from frmProducts
 
+        //Swap image and description info
+        private static SqlCommand _sqlProductCommand;
+        //data adaptor
+        private static SqlDataAdapter _daProduct = new SqlDataAdapter();
+        //data table
+        private static DataTable _dtProductTable = new DataTable();
+
+
+        public static int SelectedUPC;
 
         //getters and setters
         public static DataTable DTProductsTable
@@ -37,6 +45,12 @@ namespace WindowsFormsApp1
             set { _dtProductsTable = value; }
         }
 
+
+        public static DataTable DTProductTable
+        {
+            get { return _dtProductTable; }
+            set { _dtProductTable = value; }
+        }
 
         public static void OpenDatabase()
         {
@@ -74,9 +88,33 @@ namespace WindowsFormsApp1
 
             _dtProductDescriptionTable = new DataTable();
 
+            string sql = "Select top 1 * from group2sp212330.Products;";
+
+            SqlCommand cmdInit = new SqlCommand();
+
+            cmdInit = new SqlCommand(sql, _cntDatabase);
+            SqlDataReader sqlReaderInit = cmdInit.ExecuteReader();
+
+           
+            int upc = 0;
+
+            if (sqlReaderInit.Read())
+            {
+                
+                var varUPC = sqlReaderInit["UPC"].ToString();
+
+                int.TryParse(varUPC, out SelectedUPC);
+            }
+            sqlReaderInit.Close();
+
+
             string strDGVCommand = "Select Name, Price, InStock from group2sp212330.Products";
-            string strLBLCommand = "Select Description from group2sp212330.Products where UPC = 1456789123";
-            string strPBXCommand = "Select group2sp212330.Products.ImageIndex , ProductImage from group2sp212330.Products, group2sp212330.ProdImages where UPC = 1456789123 and group2sp212330.Products.ImageIndex = group2sp212330.ProdImages.ImageIndex;";
+            string strLBLCommand = $"Select Description from group2sp212330.Products where UPC = {SelectedUPC}";
+            string strPBXCommand = $"Select group2sp212330.Products.ImageIndex , ProductImage from group2sp212330.Products, group2sp212330.ProdImages where UPC = {SelectedUPC} and group2sp212330.Products.ImageIndex = group2sp212330.ProdImages.ImageIndex;";
+
+            //set command object to null
+            _sqlProductsCommand = null;
+            //FILLS TABLE AND OBJECTS
             try
             {
                 //est cmd obj
@@ -121,6 +159,7 @@ namespace WindowsFormsApp1
                         Image image = Image.FromStream(ms);
                         picture.Image = image;
                     }
+                    sqlReader.Close();
                 }
                 catch (Exception)
                 {
@@ -138,10 +177,77 @@ namespace WindowsFormsApp1
             _dtProductsTable.Dispose();
         }
 
-
-    } 
-    public class Images
+        public static void SelectedProductChange(string SelectedItemName, Label Description, PictureBox pbProductImage)
         {
+            //
+            _sqlProductCommand = null;
+            _daProduct = new SqlDataAdapter();
+            _dtProductTable = new DataTable();
+
+            _dtProductDescriptionTable = new DataTable();
+
+            try
+            {
+                //string to build the query
+                string query = $"Select group2sp212330.ProdImages.ImageIndex, ProductImage, Description from group2sp212330.Products, group2sp212330.ProdImages where Name = '{SelectedItemName}' and group2sp212330.Products.ImageIndex = group2sp212330.ProdImages.ImageIndex;";
+                //establish command object
+                _sqlProductCommand = new SqlCommand(query, _cntDatabase);
+                //establish data adapter
+                _daProduct = new SqlDataAdapter();
+                _daProduct.SelectCommand = _sqlProductCommand;
+                //fill data table
+                _dtProductTable = new DataTable();
+                _daProduct.Fill(_dtProductTable);
+                //bind controls to the textboxes
+
+                DataRow DataRow = _dtProductTable.Rows[0];
+
+                Description.Text = DataRow["Description"].ToString();
+
+                Images ProdImage = new Images();
+                SqlDataReader sqlReader;
+
+                try
+                {
+                    sqlReader = _sqlProductsCommand.ExecuteReader();
+
+                    while (sqlReader.Read())
+                    {
+
+                        ProdImage.ImageID = sqlReader.GetInt32(0); // MS SQL Datatype int
+                        ProdImage.Image = (byte[])sqlReader[1]; // MS SQL Datatype varbinary(MAX)
+
+                    }
+
+                    using (MemoryStream ms = new MemoryStream(ProdImage.Image))
+                    {
+                        Image image = Image.FromStream(ms);
+                        pbProductImage.Image = image;
+                    }
+                    sqlReader.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error reloading images.", "Error with Loading", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error in establishing New Image. Error 301.", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            //dispose of cmd, adaptor, and table 
+            _sqlProductCommand.Dispose();
+            _daProduct.Dispose();
+            _dtProductTable.Dispose();
+        }
+    } 
+
+    
+
+    public class Images
+    {
             public int ImageID { get; set; }
             public byte[] Image { get; set; }
 
@@ -157,5 +263,10 @@ namespace WindowsFormsApp1
                 ImageID = intNumber;
                 Image = imageArray;
             }
-        }
+    }
+
+    //ProgOps.SignupCommand(frmSignup Signup)
+    //{
+            //string cmdSignup = $"Insert into group2sp212330.Customers  (Name, Password, Address, Email, Phone) Values {}"
+    //}
 }

@@ -21,7 +21,17 @@ namespace WindowsFormsApp1
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //constrict listboox to items that share text in name or description
+            foreach (DataGridViewRow row in dgvProducts.Rows)
+            {
+                if (row.Cells[0].Value.ToString().Contains(txtSearch.Text))
+                {
+                    this.dgvProducts.CurrentCell = row.Cells[0];
+
+                    ProductClick();
+
+                    return;
+                }
+            }
         }
 
         private void btnAddtoCart_Click(object sender, EventArgs e)
@@ -47,6 +57,20 @@ namespace WindowsFormsApp1
             ProgOps.OpenDatabase();
             ProgOps.InitProductDatabaseCommand(dgvProducts, lblDesc, pbxProduct);
 
+        }
+
+        private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ProductClick();
+        }
+
+        private void ProductClick()
+        {
+            int intRowIndex = dgvProducts.CurrentRow.Index;
+
+            string SelectedItem = dgvProducts.CurrentRow.Cells[0].Value.ToString();
+
+            ProgOps.SelectedProductChange(SelectedItem, lblDesc, pbxProduct);
         }
     }
 }

@@ -137,6 +137,7 @@ namespace FarmsRUs
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSignUp
             // 
@@ -146,6 +147,7 @@ namespace FarmsRUs
             this.btnSignUp.TabIndex = 13;
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = true;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // tbxPasswordRenter
             // 

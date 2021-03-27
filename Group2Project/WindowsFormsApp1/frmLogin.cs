@@ -32,7 +32,9 @@ namespace WindowsFormsApp1
         private void btnSign_Click(object sender, EventArgs e)
         {
             //make new data in db and bring up frmSignUp
-            
+            //frmSignup Sign = new frmSignup(this);
+            //this.Hide();
+            //Sign.show();
            //bring them to login
 
             //messagebox to tell them too login?
@@ -41,6 +43,11 @@ namespace WindowsFormsApp1
         private void btnExit_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

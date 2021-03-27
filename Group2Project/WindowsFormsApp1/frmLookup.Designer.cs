@@ -125,6 +125,7 @@
             this.dgvProducts.ReadOnly = true;
             this.dgvProducts.Size = new System.Drawing.Size(240, 286);
             this.dgvProducts.TabIndex = 17;
+            this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
             // 
             // frmLookup
             // 

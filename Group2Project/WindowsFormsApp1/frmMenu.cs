@@ -43,12 +43,17 @@ namespace WindowsFormsApp1
         private void btnIncomOrders_Click(object sender, EventArgs e)
         {
             //check shipments coming in
+            frmOrders orders = new frmOrders(this);
+            orders.Show();
+            this.Hide();
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
             //view schedules if employee
-
+            frmSchedules schedules = new frmSchedules(this);
+            schedules.Show();
+            this.Hide();
             //manipulate if manager
         }
 

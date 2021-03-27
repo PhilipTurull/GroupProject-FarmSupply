@@ -12,9 +12,25 @@ namespace WindowsFormsApp1
 {
     public partial class frmOrders : Form
     {
-        public frmOrders()
+        frmMenu frmMenu;
+
+        public frmOrders(frmMenu menu)
         {
             InitializeComponent();
+
+            frmMenu = menu;
+        }
+
+        private void frmOrders_Load(object sender, EventArgs e)
+        {
+            //Prog ops select top from orders, then use search to find the order
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            frmMenu.Show();
+            this.Close();
+
         }
     }
 }

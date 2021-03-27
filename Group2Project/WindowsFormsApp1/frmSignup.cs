@@ -12,11 +12,28 @@ namespace FarmsRUs
 {
     public partial class frmSignup : Form
     {
+        //frmLogin login;
+       //frmLogin Login
         public frmSignup()
         {
             InitializeComponent();
+            //login = Login;
         }
 
-        
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //login.show();
+            this.Close();
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            if(tbxPassword.Text != tbxPasswordRenter.Text)
+            {
+                MessageBox.Show("Passwords must match!!!", "Password issue", MessageBoxButtons.OK);
+            }
+            //ProgOps.SignupCommand(this);
+
+        }
     }
 }
