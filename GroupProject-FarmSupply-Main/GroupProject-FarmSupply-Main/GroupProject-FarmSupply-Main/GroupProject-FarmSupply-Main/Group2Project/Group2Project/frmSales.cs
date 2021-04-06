@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Group2Project
+{
+    public partial class frmSales : Form
+    {
+
+        public frmMenu menu;
+
+        public frmSales()
+        {
+            InitializeComponent();
+        }
+
+        private void frmSales_Load(object sender, EventArgs e)
+        {
+            ProgOps.Orders(dgvOrders, menu);
+        }
+    }
+}
